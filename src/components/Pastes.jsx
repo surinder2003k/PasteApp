@@ -27,7 +27,7 @@ const Pastes = () => {
         <div className='justify-baseline p-2 w-full  text-[4.5vh] font-semibold'>
           All Pastes
         </div>
-      <div className=' flex flex-col  gap-3 '>
+      <div className=' flex flex-col   '>
         {
           filterdata.length > 0 &&
           filterdata.map(
