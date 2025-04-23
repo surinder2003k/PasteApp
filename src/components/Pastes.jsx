@@ -16,15 +16,15 @@ const Pastes = () => {
   }
 
   return (
-    <div className='mt-15 '>
+    <div className='mt-15 w-[170vh]'>
       <input
-        className='p-2 w-[145vh] outline-0 bg-[#02020faa] rounded mt-3'
+        className='p-2 w-[170vh] outline-0 bg-[#02020faa] rounded mt-3'
         placeholder='Search here'
         value={searchterm}
         onChange={(e) => setsearchterm(e.target.value)}
         type="text" />
-      <div className='bg-[#02020faa]  mt-3'>
-        <div className='justify-baseline p-2 w-full border-b text-[4.5vh] font-semibold'>
+      <div className=' bg-[#02020faa]  mt-3'>
+        <div className='justify-baseline p-2 w-full  text-[4.5vh] font-semibold'>
           All Pastes
         </div>
       <div className=' flex flex-col  gap-3 '>
@@ -34,16 +34,16 @@ const Pastes = () => {
             (dat) => (
               <div
                 key={Math.random()}
-                className='border px-3 flex justify-between'>
-               <div className='p-3'>
-                    <div className='text-[4vh] font-semibold'>
+                className='border border-gray-700 px-3 flex justify-between'>
+               <div className='p-3 items-baseline flex  flex-col gap-2'>
+                    <div className=' text-[4vh] font-semibold'>
                       {dat.title}
                     </div>
                     <div>
                       {dat.content}
                     </div>
               </div>
-              <div className=' p-3'>    
+              <div className=' p-3 flex flex-col justify-between'>    
                 <div className='gap-2 flex place-content-evenly'>
                 <NavLink  to={`/?pasteId=${dat._id}`}>
                 <button >
