@@ -18,7 +18,7 @@ const Pastes = () => {
   return (
     <div className='mt-15 w-[170vh]'>
       <input
-        className='p-2 w-[170vh] outline-0 bg-[#02020faa] rounded mt-3'
+        className='py-3 px-3 w-[170vh] outline-0 bg-[#02020faa] rounded mt-3'
         placeholder='Search here'
         value={searchterm}
         onChange={(e) => setsearchterm(e.target.value)}
