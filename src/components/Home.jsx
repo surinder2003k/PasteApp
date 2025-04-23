@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { addToPaste, updateToPaste } from '../redux/pasteSlice'
+import toast from 'react-hot-toast'
 
 const Home = () => {
   const [Title, setTitle] = useState('')
@@ -37,12 +38,12 @@ const Home = () => {
     setsearchParams({})
   }
   return (
-    <div className='border mt-15 '>
+    <div className=' mt-15 '>
       <div className='flex gap-4 place-content-between'>
         <input
           type="text"
-          className='py-2 px-3 w-[320px] mt-2 bg-[#02020faa] rounded outline-0'
-          placeholder='Enter title here'
+          className='py-2 px-3 w-[145vh] mt-2 bg-[#02020faa] rounded outline-0'
+          placeholder='Title'
           value={Title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -50,12 +51,26 @@ const Home = () => {
           {pasteId ? 'Update My Paste' : 'Create My Paste'}
         </button>
       </div>
-      <div>
+      <div className='mt-3'>
+        <div className='border flex  place-content-between items-center px-5 border-gray-600 rounded-t h-[40px] '>
+        <div>
+        <i className="text-red-500 ri-circle-fill"></i>
+        <i className="text-orange-500 ri-circle-fill"></i>
+        <i className="text-green-500 ri-circle-fill"></i>
+        </div>
+        <i 
+        onClick={()=>{
+          if(Value){
+          navigator.clipboard.writeText(Value)
+          toast.success('copied to clipboard')}
+        }}
+        className="cursor-pointer ri-file-copy-line"></i>
+        </div>
         <textarea
           value={Value}
           onChange={(e) => setValue(e.target.value)}
-          className='bg-[#02020faa] h-[300px] p-3 rounded-xl outline-0 mt-3 w-[500px]'
-          placeholder='Enter Your Paste' />
+          className='bg-[#02020faa] h-[400px] p-3 rounded-b-xl outline-0  w-[170vh]'
+          placeholder='Write Your Content Here...' />
       </div>
     </div>
   )
